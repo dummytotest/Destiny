@@ -21,7 +21,10 @@
       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
       import { getFirestore, collection, addDoc, query, orderBy, onSnapshot } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
       import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
-
+      function toggleModal() {
+    const modal = document.getElementById('uploadModal');
+    modal.style.display = (modal.style.display === "block") ? "none" : "block";
+}
       // PASTE YOUR FIREBASE CONFIG HERE
       const firebaseConfig = {
          apiKey: "YOUR_API_KEY",
@@ -69,6 +72,8 @@
          }
       };
 
+      
+      
       // 3. Listen for Data (Real-time)
       const q = query(collection(db, "memories"), orderBy("createdAt", "desc"));
       onSnapshot(q, (snapshot) => {
@@ -89,3 +94,4 @@
       });
    </script>
 </body>
+
